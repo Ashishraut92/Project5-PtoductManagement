@@ -12,7 +12,7 @@ app.use(multer().any())
 
 mongoose
     .connect(
-        'mongodb+srv://suryask:mongo302@mycluster1.ogvku.mongodb.net/Project5-DB',
+        'mongodb+srv://ashish123:Zq1Ts3r54Eazp00t@cluster0.frqge.mongodb.net/Project5-DB?authSource=admin&replicaSet=atlas-whi53q-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true',
         {
             useNewUrlParser : true
         }

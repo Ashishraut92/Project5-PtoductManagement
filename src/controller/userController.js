@@ -10,8 +10,6 @@ const register = async (req, res) => {
 
     let requestBody = JSON.parse(JSON.stringify(req.body))
 
-
-
     if (!validator.isValidRequestBody(requestBody)) {
       return res
         .status(400)
@@ -20,7 +18,7 @@ const register = async (req, res) => {
 
     let { fname, lname, email, phone, password, address } = requestBody
 
-    address = JSON.parse(address)
+    address = JSON.parse(JSON.stringify(address))
 
     let files = req.files
     let uploadedFileURL
@@ -318,7 +316,7 @@ const getUserById = async function (req, res) {
 
 const updateProfile = async function (req, res) {
   try {
-    let userId = req.params.userId.trim()
+    let userId = req.params.userId
 
     if (!validator.isValidObjectId(userId)) {
       return res
@@ -358,7 +356,7 @@ const updateProfile = async function (req, res) {
       } = req.body
 
 
-      filter = {  }
+      filter = {}
 
       // file validation
       if (files && files.length > 0) {
@@ -474,14 +472,14 @@ const updateProfile = async function (req, res) {
 
       //address 
       
-      address1 = JSON.parse(address)
+      address = JSON.parse(JSON.stringify(address))
       
 
 
       if (requestBody.hasOwnProperty('address')) {
 
         
-        let {shipping , billing} = address1
+        let {shipping , billing} = address
 
         if(shipping){
 
